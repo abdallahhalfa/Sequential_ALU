@@ -307,4 +307,4 @@ bind SEQ_ALU SEQ_ALU_SVA sva (ALU_INTR);
 endmodule
 ```
 ## Future Work
-Converting the testbench to Class-Based Testbench with implementing a sequencer and a mailbox for each transaction.   
+**Converting the testbench to Class-Based Testbench with implementing a sequencer and a mailbox for each transaction.**   
