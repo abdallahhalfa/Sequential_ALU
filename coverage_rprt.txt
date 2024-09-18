@@ -1,0 +1,334 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\SEQ_ALU_TOP#DUT /sva
+=== Design Unit: work.SEQ_ALU_SVA
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       6         6         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\SEQ_ALU_TOP#DUT /sva/assert_p1
+                     SEQ_ALU_SVA.sv(33)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p2
+                     SEQ_ALU_SVA.sv(36)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p3
+                     SEQ_ALU_SVA.sv(39)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p4
+                     SEQ_ALU_SVA.sv(42)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p5
+                     SEQ_ALU_SVA.sv(45)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p6
+                     SEQ_ALU_SVA.sv(48)                 0          1
+
+Directive Coverage:
+    Directives                       6         6         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\SEQ_ALU_TOP#DUT /sva/cov_p1            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(34)
+                                                                                 9 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p2            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(37)
+                                                                               109 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p3            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(40)
+                                                                               110 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p4            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(43)
+                                                                               357 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p5            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(46)
+                                                                               359 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p6            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(49)
+                                                                                48 Covered   
+
+=================================================================================
+=== Instance: /\SEQ_ALU_TOP#DUT 
+=== Design Unit: work.SEQ_ALU
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         7         7         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\SEQ_ALU_TOP#DUT 
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File SEQ_ALU.sv
+------------------------------------IF Branch------------------------------------
+    5                                       1010     Count coming in to IF
+    5               1                         18       if(!ALU_INTR.rst)
+    9               1                        943       else if(ALU_INTR.en)
+                                              49     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    11                                       943     Count coming in to CASE
+    12              1                        111          ADD:
+    16              1                        110          SUB:
+    20              1                        360          AND:
+    24              1                        362          OR:
+Branch totals: 4 hits of 4 branches = 100.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       6         6         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\SEQ_ALU_TOP#DUT  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File SEQ_ALU.sv
+    2                                                module SEQ_ALU ( SEQ_ALU_INTERFACE.DUT ALU_INTR );
+    3               1                       1010     always@(posedge ALU_INTR.clk, negedge ALU_INTR.rst)
+    4                                                 begin
+    5                                                  if(!ALU_INTR.rst)
+    6                                                   begin
+    7               1                         18         ALU_INTR.C<=0;
+    8                                                   end
+    9                                                  else if(ALU_INTR.en)
+    10                                                  begin
+    11                                                   case(ALU_INTR.opcode)
+    12                                                    ADD:
+    13                                                      begin
+    14              1                        111           	ALU_INTR.C<=ALU_INTR.A+ALU_INTR.B;
+    15                                                      end
+    16                                                    SUB:
+    17                                                      begin
+    18              1                        110           	ALU_INTR.C<=ALU_INTR.A-ALU_INTR.B;     
+    19                                                      end
+    20                                                    AND:
+    21                                                      begin
+    22              1                        360           	ALU_INTR.C<=ALU_INTR.A&ALU_INTR.B;      
+    23                                                      end
+    24                                                    OR:
+    25                                                      begin
+    26              1                        362           	ALU_INTR.C<=ALU_INTR.A|ALU_INTR.B;      
+
+
+=================================================================================
+=== Instance: /\SEQ_ALU_PACKAGE 
+=== Design Unit: work.SEQ_ALU_PACKAGE
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na   100.00%
+        Coverpoints/Crosses          5        na        na        na
+            Covergroup Bins         14        14         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /\SEQ_ALU_PACKAGE /ALU/ALU_GROUP                100.00%        100          -    Covered              
+    covered/total bins:                                    14         14          -                      
+    missing/total bins:                                     0         14          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint A_CR                                   100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin A_zero                                        116          1          -    Covered              
+        bin A_maxpos                                      129          1          -    Covered              
+        bin A_maxneg                                      110          1          -    Covered              
+        bin A_intr                                        355          1          -    Covered              
+        default bin A_others                              646                     -    Occurred             
+    Coverpoint B_CR                                   100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin B_zero                                        137          1          -    Covered              
+        bin B_maxpos                                      119          1          -    Covered              
+        bin B_maxneg                                      122          1          -    Covered              
+        bin B_intr                                        378          1          -    Covered              
+        default bin B_others                              623                     -    Occurred             
+    Coverpoint opcode_CR                              100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin opcode_values                                1001          1          -    Covered              
+    Coverpoint opcode                                 100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[ADD]                                     120          1          -    Covered              
+        bin auto[SUB]                                     115          1          -    Covered              
+        bin auto[AND]                                     380          1          -    Covered              
+        bin auto[OR]                                      386          1          -    Covered              
+    Cross opcode_A_B_CR                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin ADD_SUB_A_B                               234          1          -    Covered              
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       1         1         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\SEQ_ALU_PACKAGE  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File SEQ_ALU_PACKAGE.sv
+    1                                                package SEQ_ALU_PACKAGE;
+    2                                                 typedef enum {ADD,SUB,AND,OR}opcode_e; 
+    3                                                 parameter MAX_POS = 7;
+    4                                                 parameter MAX_NEG = -8;
+    5                                                 parameter ZERO = 0 ;
+    6                                                 class ALU;
+    7                                                  rand logic rst,en;
+    8                                                  rand logic signed [3:0] A,B;
+    9                                                  rand opcode_e opcode;
+    10                                                 bit clk;
+    11                                                 logic signed [4:0] C;
+    12                                               
+    13                                                 /*function void print();
+    14                                                  $display("rst %0d, en %0d, A %0d, B %0d, C %0d",rst,en,A,B,C);
+    15                                                 endfunction*/
+    16                                                 
+    17                                                 constraint opcode_c {
+    18                                               	if (opcode==ADD || opcode == SUB) {
+    19                                               	 A dist {MAX_POS:=30, MAX_NEG:=30, ZERO:=30 };
+    20                                               	 B dist {MAX_POS:=30, MAX_NEG:=30, ZERO:=30 };
+    21                                               	} 
+    22                                               	}
+    23                                                 constraint rst_c {
+    24                                               	 rst dist {0:=1, 1:=99};
+    25                                               	}
+    26                                                
+    27                                                 constraint en_c {
+    28                                               	 en dist {0:=5, 1:=95};
+    29                                               	}
+    30                                               
+    31                                               covergroup ALU_GROUP @(posedge clk);
+    32                                                 A_CR: coverpoint A {
+    33                                               	 bins A_zero = {ZERO};
+    34                                               	 bins A_maxpos = {MAX_POS};
+    35                                               	 bins A_maxneg = {MAX_NEG};
+    36                                                        bins A_intr = {ZERO,MAX_POS,MAX_NEG};
+    37                                               	 bins A_others = default;
+    38                                               	}
+    39                                               
+    40                                                 B_CR: coverpoint B {
+    41                                               	 bins B_zero = {ZERO};
+    42                                               	 bins B_maxpos = {MAX_POS};
+    43                                               	 bins B_maxneg = {MAX_NEG};
+    44                                                        bins B_intr = {ZERO,MAX_POS,MAX_NEG};
+    45                                               	 bins B_others = default;
+    46                                               	}
+    47                                               
+    48                                                 opcode_CR: coverpoint opcode {
+    49                                               	 bins opcode_values = {ADD,SUB,AND,OR};
+    50                                               	}
+    51                                               
+    52                                                 opcode_A_B_CR: cross B_CR,A_CR,opcode {
+    53                                               	 bins ADD_SUB_A_B = binsof(B_CR.B_intr)&&binsof(A_CR.A_intr) iff (opcode==ADD || opcode == SUB) ;
+    54                                               	 option.cross_auto_bin_max=0;
+    55                                               	}
+    56                                               endgroup
+    57                                                
+    58                                                function new();
+    59              1                          1       ALU_GROUP=new();
+
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /\SEQ_ALU_PACKAGE /ALU/ALU_GROUP                100.00%        100          -    Covered              
+    covered/total bins:                                    14         14          -                      
+    missing/total bins:                                     0         14          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint A_CR                                   100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin A_zero                                        116          1          -    Covered              
+        bin A_maxpos                                      129          1          -    Covered              
+        bin A_maxneg                                      110          1          -    Covered              
+        bin A_intr                                        355          1          -    Covered              
+        default bin A_others                              646                     -    Occurred             
+    Coverpoint B_CR                                   100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin B_zero                                        137          1          -    Covered              
+        bin B_maxpos                                      119          1          -    Covered              
+        bin B_maxneg                                      122          1          -    Covered              
+        bin B_intr                                        378          1          -    Covered              
+        default bin B_others                              623                     -    Occurred             
+    Coverpoint opcode_CR                              100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin opcode_values                                1001          1          -    Covered              
+    Coverpoint opcode                                 100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[ADD]                                     120          1          -    Covered              
+        bin auto[SUB]                                     115          1          -    Covered              
+        bin auto[AND]                                     380          1          -    Covered              
+        bin auto[OR]                                      386          1          -    Covered              
+    Cross opcode_A_B_CR                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin ADD_SUB_A_B                               234          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\SEQ_ALU_TOP#DUT /sva/cov_p1            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(34)
+                                                                                 9 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p2            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(37)
+                                                                               109 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p3            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(40)
+                                                                               110 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p4            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(43)
+                                                                               357 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p5            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(46)
+                                                                               359 Covered   
+/\SEQ_ALU_TOP#DUT /sva/cov_p6            SEQ_ALU_SVA Verilog  SVA  SEQ_ALU_SVA.sv(49)
+                                                                                48 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 6
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\SEQ_ALU_TOP#DUT /sva/assert_p1
+                     SEQ_ALU_SVA.sv(33)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p2
+                     SEQ_ALU_SVA.sv(36)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p3
+                     SEQ_ALU_SVA.sv(39)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p4
+                     SEQ_ALU_SVA.sv(42)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p5
+                     SEQ_ALU_SVA.sv(45)                 0          1
+/\SEQ_ALU_TOP#DUT /sva/assert_p6
+                     SEQ_ALU_SVA.sv(48)                 0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+
