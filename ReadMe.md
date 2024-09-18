@@ -11,7 +11,7 @@
 - [ALU TOP](#alu-top)
 - [Future Work](#future-work)
 ## Introduction
-![alt text](images/system.JPG)
+![alt text](system.JPG)
 
 ## ALU Interface
 
